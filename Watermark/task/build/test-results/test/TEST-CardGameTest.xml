@@ -1,31 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CardGameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-03T20:01:47" hostname="DESKTOP-JA25RKB" time="7.623">
+<testsuite name="CardGameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-04T15:44:28" hostname="DESKTOP-JA25RKB" time="0.751">
   <properties/>
-  <testcase name="start" classname="CardGameTest" time="7.623"/>
+  <testcase name="start" classname="CardGameTest" time="0.751"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
-Input the image filename: > notexist.png
-The file notexist.png doesn't exist.
+Input the image filename:
+> test\notexist.png
+The file test\notexist.png doesn't exist.
 ?[1;31m
 Start test 2?[0m
-Input the image filename: > test\10151rgb.png
-Image file: test\10151rgb.png
-Width: 101
-Height: 51
-Number of components: 3
-Number of color components: 3
-Bits per pixel: 24
-Transparency: OPAQUE
+Input the image filename:
+> test\grey.png
+The number of image color components isn't 3.
 ?[1;31m
 Start test 3?[0m
-Input the image filename: > test\10151rgba.png
-Image file: test\10151rgba.png
-Width: 101
-Height: 51
-Number of components: 4
-Number of color components: 3
-Bits per pixel: 32
-Transparency: TRANSLUCENT
+Input the image filename:
+> test\bits16.png
+The image isn't 24 or 32-bit.
+?[1;31m
+Start test 4?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\notexist.png
+The file test\notexist.png doesn't exist.
+?[1;31m
+Start test 5?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\grey.png
+The number of watermark color components isn't 3.
+?[1;31m
+Start test 6?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\bits16.png
+The watermark isn't 24 or 32-bit.
+?[1;31m
+Start test 7?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\70x50.png
+The image and watermark dimensions are different.
+?[1;31m
+Start test 8?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\watermark2.png
+Input the watermark transparency percentage (Integer 0-100):
+> 10.7
+The transparency percentage isn't an integer number.
+?[1;31m
+Start test 9?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\watermark2.png
+Input the watermark transparency percentage (Integer 0-100):
+> 101
+The transparency percentage is out of range.
+?[1;31m
+Start test 10?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\watermark2.png
+Input the watermark transparency percentage (Integer 0-100):
+> 20
+Input the output image filename (jpg or png extension):
+> out.gif
+The output file extension isn't "jpg" or "png".
+?[1;31m
+Start test 11?[0m
+Input the image filename:
+> test\image2.png
+Input the watermark image filename:
+> test\watermark2.png
+Input the watermark transparency percentage (Integer 0-100):
+> 20
+Input the output image filename (jpg or png extension):
+> test\out.png
+The watermarked image test\out.png has been created.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
