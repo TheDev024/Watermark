@@ -1,0 +1,24 @@
+[1;31m
+Start test 1[0m
+)Input the image filename: > notexist.png
+&The file notexist.png doesn't exist.
+[1;31m
+Start test 2[0m
+.Input the image filename: > test\10151rgb.png
+Image file: test\10151rgb.png
+Width: 101
+Height: 51
+Number of components: 3
+Number of color components: 3
+Bits per pixel: 24
+Transparency: OPAQUE
+[1;31m
+Start test 3[0m
+/Input the image filename: > test\10151rgba.png
+ Image file: test\10151rgba.png
+Width: 101
+Height: 51
+Number of components: 4
+Number of color components: 3
+Bits per pixel: 32
+Transparency: TRANSLUCENT
