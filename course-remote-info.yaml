@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/623865/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Tue, 06 Dec 2022 15:47:02 UTC"
+update_date: "Wed, 07 Dec 2022 05:20:46 UTC"
 stages:
 - id: 1112
   step: 17145
@@ -151,6 +151,8 @@ topics:
     theory_id: 3611
   - title: Computer programming
     theory_id: 8739
+  - title: Paradigms
+    theory_id: 15860
   - title: While loops
     theory_id: 4659
   - title: Introduction to OOP
@@ -179,12 +181,6 @@ topics:
     theory_id: 5504
   - title: Introduction to software architecture
     theory_id: 15368
-  - title: Design principles
-    theory_id: 8956
-  - title: Single Responsibility Principle
-    theory_id: 8963
-  - title: Object declarations
-    theory_id: 10698
   - title: Introduction to logging
     theory_id: 5538
   - title: Debugging techniques
@@ -193,6 +189,12 @@ topics:
     theory_id: 14368
   - title: Debugging simple constructs
     theory_id: 15503
+  - title: Design principles
+    theory_id: 8956
+  - title: Single Responsibility Principle
+    theory_id: 8963
+  - title: Object declarations
+    theory_id: 10698
   - title: Advanced debugger features
     theory_id: 16028
   - title: Introduction to creational patterns
