@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CardGameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-07T09:08:52" hostname="DESKTOP-JA25RKB" time="3.502">
+<testsuite name="CardGameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-07T09:51:27" hostname="DESKTOP-JA25RKB" time="3.537">
   <properties/>
-  <testcase name="start" classname="CardGameTest" time="3.502"/>
+  <testcase name="start" classname="CardGameTest" time="3.537"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Input the image filename:

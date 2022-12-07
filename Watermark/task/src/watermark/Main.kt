@@ -15,16 +15,6 @@ object Reader {
         println(prompt)
         return scanner.nextLine()
     }
-
-    fun getInt(prompt: String): Int {
-        println(prompt)
-        return scanner.nextInt()
-    }
-
-    fun getDouble(prompt: String): Double {
-        println(prompt)
-        return scanner.nextDouble()
-    }
 }
 
 object Terminator {
