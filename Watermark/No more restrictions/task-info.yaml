@@ -1067,6 +1067,22 @@ files:
 - name: test/wide.png
   visible: false
   learner_created: false
+- name: test/out1.png
+  visible: true
+  learner_created: true
+- name: test/out2.png
+  visible: true
+  learner_created: true
+- name: test/out4.png
+  visible: true
+  learner_created: true
+- name: test/out3.png
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/17149#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: "Wed, 07 Dec 2022 09:08:56 UTC"
 record: -1

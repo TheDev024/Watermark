@@ -74,7 +74,7 @@ class Watermark {
         val translucent = watermark.transparency == Transparency.TRANSLUCENT
         val transparent = if (translucent) Reader.getString("Do you want to use the watermark's Alpha channel?")
             .lowercase() == "yes" else false
-        
+
         // get watermark background color if needed
         val backgroundColor = if (translucent) null else askBackgroundColor()
 
@@ -85,23 +85,57 @@ class Watermark {
         )
         if (weight !in 0..100) Terminator.terminate("The transparency percentage is out of range.", 9)
 
+        val positionMethod = Reader.getString("Choose the position method (single, grid):").lowercase()
+        if (positionMethod != "single" && positionMethod != "grid") Terminator.terminate(
+            "The position method input is invalid.", 10
+        )
+
+        val watermarkPosition: Pair<Int, Int>? =
+            if (positionMethod == "single") getWatermarkPosition(image, watermark) else null
+
         // get output filename
         val outputPath = Reader.getString("Input the output image filename (jpg or png extension):")
         val outputFormat: String
         val output = if (Regex(".+(\\.jpg|\\.png)$").matches(outputPath)) {
             outputFormat = outputPath.substring(outputPath.length - 3, outputPath.length)
-            BufferedImage(image.width, image.height, BufferedImage.TYPE_INT_RGB)
-        } else Terminator.terminate("The output file extension isn't \"jpg\" or \"png\".", 10)
+            image
+        } else Terminator.terminate("The output file extension isn't \"jpg\" or \"png\".", 11)
 
-        for (x in 0 until image.width) for (y in 0 until image.height) {
+        val startX = watermarkPosition?.first ?: 0
+        val startY = watermarkPosition?.second ?: 0
+
+        val endX = watermarkPosition?.first?.plus(watermark.width) ?: image.width
+        val endY = watermarkPosition?.second?.plus(watermark.height) ?: image.height
+
+        for (x in startX until endX) for (y in startY until endY) {
             val imageColor = Color(image.getRGB(x, y))
-            val watermarkColor = Color(watermark.getRGB(x, y), true)
+            val watermarkColor = Color(watermark.getRGB((x - startX) % watermark.width, (y - startY) % watermark.height), true)
             val outputColor = getColor(imageColor, watermarkColor, weight, transparent, backgroundColor)
             output.setRGB(x, y, outputColor.rgb)
         }
         val outputFile = File(outputPath)
         ImageIO.write(output, outputFormat, outputFile)
         println("The watermarked image $outputPath has been created.")
+    }
+
+    private fun getWatermarkPosition(image: BufferedImage, watermark: BufferedImage): Pair<Int, Int> {
+        val diffX = image.width - watermark.width
+        val diffY = image.height - watermark.height
+
+        val position = Reader.getString("Input the watermark position ([x 0-$diffX] [y 0-$diffY]):")
+        val x: Int
+        val y: Int
+        try {
+            val positions = position.split(" ")
+            x = positions[0].toInt()
+            y = positions[1].toInt()
+        } catch (e: Exception) {
+            Terminator.terminate("The position input is invalid.", 13)
+        }
+
+        if (x !in 0..diffX || y !in 0..diffY) Terminator.terminate("The position input is out of range.", 14)
+
+        return Pair(x, y)
     }
 
     private fun getColor(
@@ -135,9 +169,9 @@ class Watermark {
                     val g = rgb[1].toInt()
                     val b = rgb[2].toInt()
                     return Color(r, g, b)
-                } else Terminator.terminate("The transparency color input is invalid.", 11)
+                } else Terminator.terminate("The transparency color input is invalid.", 12)
             } catch (e: Exception) {
-                Terminator.terminate("The transparency color input is invalid.", 11)
+                Terminator.terminate("The transparency color input is invalid.", 12)
             }
         } else null
     }
